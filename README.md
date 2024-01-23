@@ -22,9 +22,7 @@ source("C:\\Users\\...\\Functions.R")
 
 # install and load the followong packages
 
-library(copula)
-library(VineCopula)
-library(fitdistrplus) 
+library(copula) ; library(VineCopula) ; library(fitdistrplus) 
 library(GoFKernel)
 library(statmod)
 library(ggplot2)
