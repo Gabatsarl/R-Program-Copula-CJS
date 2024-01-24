@@ -9,8 +9,9 @@
 
 # Density, cdf and quantile fonction for beta(alpha,beta, lambda)
 
-dbeta3<-function(x,alpha,beta,lambda){(lambda/(1-(1-lambda)*x)^2)*
-    dbeta(lambda*x/(1-(1-lambda)*x),alpha,beta)}
+dbeta3<-function(x,alpha,beta,lambda){
+               (lambda/(1-(1-lambda)*x)^2)*
+              dbeta(lambda*x/(1-(1-lambda)*x),alpha,beta)}
 
 #  cdf of beta3 
 pbeta3<-function(x,alpha,beta,lambda){
