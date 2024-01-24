@@ -10,7 +10,10 @@ Dans ce projet, nous proposons un modèle alternative à base des copules lorsqu
 et nous donnons un exemple d'application.
 
 # Methods
-La formule \(E=mc^2\) représente l'équivalence masse-énergie.
+Nous partons d'une décomposition en vigne pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies C^1, C^2 et C^3  avec comme explication
+
+    1. La La formule \(E=mc^2\) représente l'équivalence masse-énergie.
+    
 # Results
 
 # Conclusion
