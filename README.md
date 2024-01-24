@@ -1,6 +1,4 @@
-
 # Exchangeable 2-copule modeling of hierarchical data: Application to prediction
-
 
 
 # Introduction
@@ -16,7 +14,6 @@ Nous partons d'une décomposition en vigne pour écrire la distribution des vari
 
 Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales des deux variables et les trois(3).
 Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
-
     
 # Application
 Nous appliquons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code
