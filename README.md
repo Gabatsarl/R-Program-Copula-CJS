@@ -9,12 +9,18 @@ Les données groupées sont souvent modéliséer par le modèle linéaire hiéar
 Dans ce projet, nous proposons un modèle alternative à base des copules lorsque le nombre de variable explicative est 2
 et nous donnons un exemple d'application.
 
-# Methods
+# Modélisation
 Nous partons d'une décomposition en vigne pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies C^1, C^2 et C^3  avec comme explication
 
-    1. La La formule \(E=mc^2\) représente l'équivalence masse-énergie.
+    1. La copule C^1 et C^3 sont des copules échangeables
+    2. La copule C^2 est une copule bivariée quelconque.
+
+Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales des deux variables et les trois(3).
+Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
+
     
-# Results
+# Application
+Nous appliquons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles sur 
 
 # Conclusion
 
