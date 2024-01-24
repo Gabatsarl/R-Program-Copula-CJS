@@ -8,7 +8,7 @@ Exchangeable 2-copule modeling of hierarchical data: Application to prediction
 Ce projet vise à donner un exemple d'application du modèle de 2-copules échangeable pour modéliser des données hiérarchiques.
 
 # Methods
-
+La formule \(E=mc^2\) représente l'équivalence masse-énergie.
 # Results
 
 # Conclusion
