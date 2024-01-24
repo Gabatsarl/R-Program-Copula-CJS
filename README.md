@@ -24,15 +24,5 @@ Nous appliquons ce modèle sur des données ouvertes et traités par les modèle
 
 # Conclusion
 
-
-# Titre du Projet
-
-Description brève du projet.
-
-## Installation
-
-1. Cloner le dépôt.
-2. Exécuter la commande suivante pour installer les dépendances :
-
 ```bash
 npm install
