@@ -20,7 +20,11 @@ Pour cela, nous utilisons les procédures habituelles d'ajustement des distribut
 
     
 # Application
-Nous appliquons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles sur 
+Nous appliquons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code
+
+```r
+library(lmeresampler) ; data(jsp728)
+```
 
 # Conclusion
 
