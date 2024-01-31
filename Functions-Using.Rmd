@@ -31,8 +31,8 @@ pbeta3_inv<-function(x, alpha,beta, lambda)
 
 Likelihood_2exchangeable<-function(para,data){
   # Input : @data : three-column dataframe : Column 1 : School (1:m), m is numer of cluster
-  #                                              Column 2 : variable x
-  #                                              Column 3 : variable y
+  #                                          Column 2 : variable x
+  #                                          Column 3 : variable y
   #                                 - F :  beta distribution of x with parameters alpha1,beta1
   #                                 - G :  beta distribution of y with parameters alpha2,beta2 et lambda
   #                                 - c1 : normal copula with parameter rho1
@@ -61,16 +61,16 @@ Likelihood_2exchangeable<-function(para,data){
   
   l2<--sum(log(dbeta3(data[,3],alpha2,beta2,lambda))) # g0
   
-  # c1 copula : normal
+  # c1 copula : normal of parameters @rho1
   l01<-0
   for(i in 1:m){
-    ##-------partie III-1 li?e ? la copule c1------#
+    ##-------Part III-1 of likelihood ------#
     ind<-which(data[,1]==i)
     lnC1<--dCopula(u0[ind],normalCopula(rho1, dim=length(ind)),log=TRUE)
     l01<-l01+lnC1
   }
   
-  ## copula c2 khoudraji
+  ## copula c2 : khoudraji of parameters @(kappa1,kappa2,rho2)
   koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(rho2),
                             shape = c(kappa1,kappa2))
   l02<- -sum(dCopula(matrix(cbind(1-u0,1-v0),ncol=2),koudraji,log=TRUE))
@@ -81,7 +81,7 @@ Likelihood_2exchangeable<-function(para,data){
                   kappa1*(1-v0)^(1-kappa2)*pnorm((qnorm((1-v0)^kappa2)-
                                             rho2*qnorm((1-u0)^kappa1))/sqrt(1-rho2^2))
   
-  # c3 Copula 
+  # c3 Copula : normal of parameters @rho1
   l03<-0
   for(i in 1:m){
     ind1<-which(data[,1]==i)
@@ -296,7 +296,7 @@ Conditionnal_density<-function(i,x0,K=10,data,vde=seq(.0005,.9995,by=0.001),
     kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,
                                          u2=(1-v0)^kappa2, family=1, par=delta2)
   
-  # Calxulate mu0 and sig0 of School i
+  # Calculate mu0 and sig0 of School i
   
   moyee<-mean(qnorm(w0))
   n0=length(ind)
