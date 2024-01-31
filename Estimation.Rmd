@@ -1,5 +1,5 @@
 
-##------------------------------------------------------------------------------------##
+#------------------------------------------------------------------------------------##
 #
 #  
 #  This file contains calls to the R packages needed to
@@ -22,17 +22,15 @@ source("C:\\Users\\...\\Functions.R")
 
 # install and load the followong packages
 
-library(copula) ; library(VineCopula) ; library(fitdistrplus) 
-library(GoFKernel)
-library(statmod)
-library(ggplot2)
-library(lmeresampler)
+library(copula) ; library(VineCopula) ; library(fitdistrplus) ; library(GoFKernel) ; library(statmod) ; library(ggplot2) ; library(lmeresampler)
 
 
 
-# load the data from lmeresampler
+# load the data from lmeresampler : Jsp is 728 data from a London school
 
 data("jsp728")  # School 10 and 43 are skipped, so renumerate as follows
+
+# Rename school numbers to apply Kendall exchangeable tauE
 u<-unique(jsp728$school) ; school<-rep(0,dim(jsp728)[1])
 for (i in 1:length(u)){ ind<-which(jsp728$school==u[i]); school[ind]<-i }
 jsp728$school<-school
