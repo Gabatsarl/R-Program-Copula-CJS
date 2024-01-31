@@ -114,7 +114,7 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
   quadra<-gauss.quad(K,kind="hermite") # 10 number of quadrature points
     u<-seq(.01,.99,by=.01)
 
-    # index of individuals in the school we're interested in
+  # index of individuals in the school we're interested in
     ind<-which(data[,1]==i)
   
   # Transformation of u0 and v0
