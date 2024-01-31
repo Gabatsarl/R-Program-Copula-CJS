@@ -30,7 +30,7 @@ pbeta3_inv<-function(x, alpha,beta, lambda)
 
 
 Likelihood_2exchangeable<-function(para,data){
-  # Input : @data : three-column dataframe : Column 1 : School (1:m)
+  # Input : @data : three-column dataframe : Column 1 : School (1:m), m is numer of cluster
   #                                              Column 2 : variable x
   #                                              Column 3 : variable y
   #                                 - F :  beta distribution of x with parameters alpha1,beta1
