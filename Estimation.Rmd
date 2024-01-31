@@ -95,7 +95,7 @@ fig5<-ggplot() +
   scale_color_manual(values = c("1" = "red", "30" = "blue"))
 
 
-fig5
+
 # estimation of residuals of 2-exchangeable model with "prediction_error" function output list
 # of two elements "yde" and "densi"
 
