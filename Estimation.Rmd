@@ -17,14 +17,11 @@
 
 ## source R code containing the functions to be used
 
-
 source("C:\\Users\\...\\Functions-Using.R")
 
-# install and load the followong packages
+# install and load the following packages
 
 library(copula) ; library(VineCopula) ; library(fitdistrplus) ; library(GoFKernel) ; library(statmod) ; library(ggplot2) ; library(lmeresampler)
-
-
 
 # load the data from lmeresampler : Jsp is 728 data from a London school
 
