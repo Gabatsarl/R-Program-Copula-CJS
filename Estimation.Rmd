@@ -17,7 +17,7 @@
 
 ## source R code containing the functions to be used
 
-source("C:\\Users\\...\\Functions-Using.R")
+source("C:\\Users\\...\\Functions_Using.R")
 
 # install and load the following packages
 
