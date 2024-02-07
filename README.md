@@ -7,7 +7,7 @@ Dans ce projet, nous proposons un modèle alternative à base des copules lorsqu
 et nous donnons un exemple d'application.
 
 # Modelling
-Nous partons d'une décomposition en vigne pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies C^1, C^2 et C^3  avec comme explication
+Le modèle échangeable proposé pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies C^1, C^2 et C^3  avec comme explication
 
     1. La copule C^1 et C^3 sont des copules échangeables
     2. La copule C^2 est une copule bivariée quelconque.
