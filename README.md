@@ -9,7 +9,11 @@ et nous donnons un exemple d'application.
 
 # Présentation de la forme des données
 Nous considérons un modèle avec 3 grappes comme exemples numérotés 1, 2 et 3 ayant respectivement 3, 5, et 4 individus. Le graphique se présente dans la figure 
+
+![Decomposition vine copula](/Cluster.png)
+
 Here is a simple flow chart:
+
 
 
 ```mermaid
