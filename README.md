@@ -12,7 +12,9 @@ Nous considérons un modèle avec 3 grappes comme exemples numérotés 1, 2 et 3
 
 ![Decomposition vine copula](/Cluster.png)
 
-Here is a simple flow chart:
+<p align="center">
+  <img src="Cluster.png" alt="Description de l'image">
+</p>
 
 
 
