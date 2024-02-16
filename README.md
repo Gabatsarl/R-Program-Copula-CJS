@@ -53,7 +53,7 @@ Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 él�
 Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
     
 # Application
-Nous appliquons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code
+Nous ajustons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code
 
 ```r
 library(lmeresampler) ; data(jsp728)
