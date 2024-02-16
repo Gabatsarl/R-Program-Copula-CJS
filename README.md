@@ -46,7 +46,7 @@ h(\textsf{\textbf{x}}_j,\textsf{\textbf{y}}_j) &=& c_{1,n_j}^{(1)}\left\{F(x_{j1
 && c_{1,n_j}^{(3)}[C_{2|1}\left\{G(y_{j1};\beta)|F(x_{j1};\alpha)\right\},\ldots,C_{2|1}\left\{G(y_{jn_j};\beta)|F(x_{jn_j};\alpha)\right\};\delta_3\right\],\nonumber
 \end{eqnarray}
 avec $C_{2|1}$, la distribution conditionnelle donnée par
-$$C_{2|1}\{v|u\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
+$$C_{2|1}\{(v|u)\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
 
 
 Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales des deux variables et les trois(3).
