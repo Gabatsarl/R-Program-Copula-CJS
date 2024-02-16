@@ -16,13 +16,16 @@ Here is a simple flow chart:
 
 
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+%```mermaid
+%graph TD;
+ %   A-->B;
+  %  A-->C;
+   % B-->D;
+    %C-->D;
+%```
+
+
+
 # Modelling
 Le modèle échangeable proposé pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies C^1, C^2 et C^3  avec comme explication
 
