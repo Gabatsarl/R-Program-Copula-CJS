@@ -1,4 +1,4 @@
-# Exchangeable 2-copule modeling of hierarchical data: Application and prediction
+# Exchangeable 2-copula modeling of hierarchical data: Application and prediction
 
 
 # Introduction
