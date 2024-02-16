@@ -25,7 +25,7 @@ Nous considérons un modèle avec 3 grappes comme exemples numérotés 1, 2 et 3
    % B-->D;
     %C-->D;
 %```
-## objectif
+## Objectif
 L'objectif est de proposer un modélisation de ces données en prenant en compte l'effet cluster.
 
 
