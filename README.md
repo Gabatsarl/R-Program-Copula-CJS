@@ -57,5 +57,8 @@ Nous ajustons ce modèle sur des données ouvertes et traités par les modèles 
 library(lmeresampler) ; data(jsp728)
 ```
 
+## Comparaison avec les modèles existants
+
+
 # Conclusion
 Le modèle proposé appelé "2-copule échangeable" améliore la prédiction par rapport à ses concurrents existants.
