@@ -23,7 +23,7 @@ Here is a simple flow chart:
    % B-->D;
     %C-->D;
 %```
-
+L'objectif est de proposer un modélisation de ces données en prenant en compte l'effet cluster.
 
 
 # Modelling
