@@ -33,7 +33,7 @@ Le modèle échangeable proposé pour écrire la distribution des variables à l
 
 
 
-![Decomposition vine copula](R-Programm-Copula-CJS/Capture.png)
+![Decomposition vine copula](/Capture.png)
 
 
 Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales des deux variables et les trois(3).
