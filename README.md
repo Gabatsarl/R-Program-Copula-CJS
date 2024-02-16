@@ -40,6 +40,11 @@ Le modèle échangeable proposé pour écrire la distribution des variables à l
 ![Decomposition vine copula](/Capture.png)
 
 
+$V = \frac{4}{3} \pi r^3$
+
+$a^2 + b^2 = c^2$
+
+
 Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales des deux variables et les trois(3).
 Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
     
