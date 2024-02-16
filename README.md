@@ -2,7 +2,7 @@
 
 
 # Introduction
-Les données groupées sont souvent modéliséer par le modèle linéaire hiéarchique et ses variantes. 
+Les données groupées sont souvent modélisé par le modèle linéaire hiéarchique et ses variantes. 
 Dans ce projet, nous proposons un modèle alternative à base des copules lorsque le nombre de variable explicative est 2
 et nous donnons un exemple d'application.
 
