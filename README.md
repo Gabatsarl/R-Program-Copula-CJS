@@ -58,6 +58,9 @@ library(lmeresampler) ; data(jsp728)
 ```
 
 ## Comparaison avec les modèles existants
+<p align="center">
+  <img src="Effic.pdf" alt="Disposition des données en cluster">
+</p>
 
 
 # Conclusion
