@@ -40,11 +40,7 @@ Le modèle échangeable proposé pour écrire la distribution des variables à l
 ![Decomposition vine copula](/Capture.png)
 
 
-\begin{eqnarray}
-h(\textsf{\textbf{x}}_j,\textsf{\textbf{y}}_j) &=& c_{1,n_j}^{(1)}\left\{F(x_{j1};\alpha),\ldots,F(x_{jn_j};\alpha);\delta_1\right\} \times \\
-&& \overset{n_j}{\underset{i=1}{\prod}}f(x_{ji};\alpha)g(y_{ji};\beta)c_{ }^{(2)}\left\{F(x_{ji} ;\alpha),G(y_{ji};\beta);\delta_2\right\} \times \nonumber \\
-&& c_{1,n_j}^{(3)}[C_{2|1}\left\{G(y_{j1};\beta)|F(x_{j1};\alpha)\right\},\ldots,C_{2|1}\left\{G(y_{jn_j};\beta)|F(x_{jn_j};\alpha)\right\};\delta_3],\nonumber
-\end{eqnarray}
+
 avec $C_{2|1}$, la distribution conditionnelle donnée par
 $$C_{2|1}\left\{v|u\right\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
 
