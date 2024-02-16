@@ -48,6 +48,3 @@ library(lmeresampler) ; data(jsp728)
 
 # Conclusion
 Le modèle proposé appelé "2-copule échangeable" améliore la prédiction par rapport à ses concurrents existants.
-
-```bash
-npm install
