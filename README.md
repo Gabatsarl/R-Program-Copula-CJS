@@ -13,7 +13,7 @@ Nous considérons un modèle avec 3 grappes comme exemples numérotés 1, 2 et 3
 ![Decomposition vine copula](/Cluster.png)
 
 <p align="center">
-  <img src="Cluster.png" alt="Description de l'image">
+  <img src="Cluster.png" alt="Disposition des données en cluster">
 </p>
 
 
