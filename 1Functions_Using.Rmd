@@ -76,7 +76,7 @@ Likelihood_2exchangeable<-function(para,data){
   koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(rho2),shape = c(kappa1,kappa2))
   l02<- -sum(dCopula(matrix(cbind(1-u0,1-v0),ncol=2),koudraji,log=TRUE))
   
-  # wij (equation 22)
+  # wij 
   w0<-1+(kappa1-1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),normalCopula(rho2,dim=2))-
                   kappa1*(1-v0)^(1-kappa2)*pnorm((qnorm((1-v0)^kappa2)-rho2*qnorm((1-u0)^kappa1))/sqrt(1-rho2^2))
   
@@ -117,11 +117,9 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
   
   
   # calculate for w0
-  
   koudraji<-khoudrajiCopula(copula1 =indepCopula(),copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
   z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),koudraji)
-  w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-
-     kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
+  w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
   
   # Calculate mu0 and sig0
  
@@ -184,11 +182,8 @@ residual_exchangeable_model<-function(K=10,data,alpha1,beta1,alpha2,beta2,lambda
   # calculate for w0
   
   koudraji<-khoudrajiCopula(copula1 =indepCopula(),copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
-  
   z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),koudraji)
-  
-  w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-
-    kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
+  w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
   
   # clacul mu0 and sig0
   sni<-dim(data)[1]
@@ -250,14 +245,14 @@ Conditionnal_density<-function(i,x0,K=10,data,vde=seq(.0005,.9995,by=0.001),
   #                                 - @K the number of quadrature points
   #                                 - @i the school to which the individual belongs
   # - x0 the known value of the explanatory variable
-  # Output :  conditionnal density g_p(y) 
+  # Output :  conditional density g_p(y) 
   
   
   
   
   yde<-pbeta3_inv(vde,alpha2,beta2,lambda)
   
-  #
+  # Identify the cluster
   ind<-which(data[,1]==i)
   
   # transforme u0 and v0
@@ -266,40 +261,29 @@ Conditionnal_density<-function(i,x0,K=10,data,vde=seq(.0005,.9995,by=0.001),
   
   
   # calculate for w0
-  
-  koudraji<-khoudrajiCopula(copula1 =indepCopula(),
-                            copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
-  
+  koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
   z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),koudraji)
-  
-  w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-
-    kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,
-                                         u2=(1-v0)^kappa2, family=1, par=delta2)
+  w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1, u2=(1-v0)^kappa2, family=1, par=delta2)
   
   # Calculate mu0 and sig0 of School i
-  
-  moyee<-mean(qnorm(w0))
   n0=length(ind)
-  mu0=moyee*n0*delta3/(1+(n0-1)*delta3)
+  mu0=mean(qnorm(w0))*n0*delta3/(1+(n0-1)*delta3)
   sig0=sqrt((1-delta3)*(1+n0*(delta3))/(1+(n0-1)*delta3))
   
   
   # component I : G(y) or y =G^-1(v)
   ude<-pbeta(x0,alpha1, beta1)   ## x0 fixé, calcul F(x0)
+  part1<-dbeta3(yde,alpha2,beta2,lambda)
   
-  part1<-dbeta3(yde,alpha2,beta2,lambda)  #
-  
-  #  component II conditionnal for survival copula c_2(1-u,1-v)  
-  koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(delta2) ,
-                            shape = c(kappa1,kappa2))
-  
+  # component II conditionnal for survival copula c_2(1-u,1-v)  
+  koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(delta2),shape = c(kappa1,kappa2))
   part2<-dCopula(matrix(cbind(1-ude,1-vde),ncol=2),koudraji)
   
-  #  component III
-  qc2s1<-qnorm(1+(kappa1-1)*(1-ude)^(-kappa1)*(1-vde)^(1-kappa2)*pCopula(cbind((1-ude)^kappa1,(1-vde)^kappa2),normalCopula(delta2,dim=2))-
+  # component III
+  c3<-qnorm(1+(kappa1-1)*(1-ude)^(-kappa1)*(1-vde)^(1-kappa2)*pCopula(cbind((1-ude)^kappa1,(1-vde)^kappa2),normalCopula(delta2,dim=2))-
                  kappa1*(1-vde)^(1-kappa2)*pnorm((qnorm((1-vde)^kappa2)-delta2*qnorm((1-ude)^kappa1))/sqrt(1-delta2^2)))
   
-  part3<-dnorm(qc2s1,mean=mu0,sd=sig0)/dnorm(qc2s1)
+  part3<-dnorm(c3,mean=mu0,sd=sig0)/dnorm(c3)
   
   # Final result
   densi<-part1*part2*part3  ## final density 
