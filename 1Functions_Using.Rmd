@@ -6,27 +6,27 @@
 #-----------------------------------------------------------------------------------------#
 
 
-# Density, cdf and quantile fonction for beta(alpha,beta, lambda)
+# Function 1 : Density fonction for beta(alpha,beta, lambda)
 
 dbeta3<-function(x,alpha,beta,lambda){
  (lambda/(1-(1-lambda)*x)^2)*dbeta(lambda*x/(1-(1-lambda)*x),alpha,beta)
 }
 
-#  cdf of beta3 
+# Function 2 : cdf of beta3 
 pbeta3<-function(x,alpha,beta,lambda){
   x2<-pbeta(lambda*x/(1-x*(1-lambda)),alpha,beta);
   x2
 }
 
 
-# qbeta_inv : Inverse of pbeta3 (F^-1)
+# Function 3 : qbeta_inv : Inverse of pbeta3 (F^-1)
 pbeta3_inv<-function(x, alpha,beta, lambda){
   resul<-qbeta(x,alpha,beta)/(lambda+(1-lambda)*qbeta(x,alpha,beta)) ;
   resul
 }
 
 
-## Function 1 : Likelihood function for parameters estimations of 2-exchangeable copula model 
+## Function 4 : Likelihood function for parameters estimations of 2-exchangeable copula model 
 #                with c2 is Khoudraji copula 
 
 
@@ -91,7 +91,10 @@ Likelihood_2exchangeable<-function(para,data){
 }
 
 
-# Function 2: prediction function for 2-exchangeable copula: This function predicts the value of y
+
+
+
+# Function 5: prediction function for 2-exchangeable copula: This function predicts the value of y
 #             knowing xn with equation (17) by conditional expectation
 
 Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,delta2,kappa1,kappa2,delta3){
@@ -158,7 +161,7 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
 
 
 
-# function 3 : Estimation of model residuals: This function predicts y 
+# function 6 : Estimation of model residuals: This function predicts y 
 # knowing x with ypred for data elements then calculates @resid=(y-ypred)
 
 
@@ -224,7 +227,7 @@ residual_exchangeable_model<-function(K=10,data,alpha1,beta1,alpha2,beta2,lambda
 
 
 
-# Function 4 : Conditionnal density function: calculates the conditional density of equation (16)
+# Function 7 : Conditionnal density function: calculates the conditional density of equation (16)
 
 
 ## function for g_p(G^-1(v))=g(y)*c2(u,v)*((1/sqrt(2pi)*sig0)*exp(-1/(sig0^2)*(t-mu0)^2)/phi(t))
