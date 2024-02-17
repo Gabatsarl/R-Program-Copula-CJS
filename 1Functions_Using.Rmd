@@ -10,19 +10,21 @@
 # Density, cdf and quantile fonction for beta(alpha,beta, lambda)
 
 dbeta3<-function(x,alpha,beta,lambda){
-               (lambda/(1-(1-lambda)*x)^2)*
-              dbeta(lambda*x/(1-(1-lambda)*x),alpha,beta)}
+ (lambda/(1-(1-lambda)*x)^2)*dbeta(lambda*x/(1-(1-lambda)*x),alpha,beta)
+}
 
 #  cdf of beta3 
 pbeta3<-function(x,alpha,beta,lambda){
-  x2<-pbeta(lambda*x/(1-x*(1-lambda)),alpha,beta); x2}
+  x2<-pbeta(lambda*x/(1-x*(1-lambda)),alpha,beta);
+  x2
+}
 
 
 # qbeta_inv : Inverse of pbeta3 (F^-1)
-pbeta3_inv<-function(x, alpha,beta, lambda)
-{resul<-qbeta(x,alpha,beta)/(lambda+(1-lambda)*qbeta(x,alpha,beta)) ; resul}
-
-
+pbeta3_inv<-function(x, alpha,beta, lambda){
+  resul<-qbeta(x,alpha,beta)/(lambda+(1-lambda)*qbeta(x,alpha,beta)) ;
+  resul
+}
 
 
 ## Function 1 : Likelihood function for parameters estimations of 2-exchangeable copula model 
@@ -30,15 +32,15 @@ pbeta3_inv<-function(x, alpha,beta, lambda)
 
 
 Likelihood_2exchangeable<-function(para,data){
-  # Input : @data : three-column dataframe : Column 1 : School (1:m), m is numer of cluster
-  #                                          Column 2 : variable x
-  #                                          Column 3 : variable y
+  # Input : @data : three-column data frame : Column 1: School (1:m), m is number of cluster
+  #                                          Column 2: variable x
+  #                                          Column 3: variable y
   #                                 - F :  beta distribution of x with parameters alpha1,beta1
   #                                 - G :  beta distribution of y with parameters alpha2,beta2 et lambda
   #                                 - c1 : normal copula with parameter rho1
   #                                 - c2 : Khoudraji copula with parameters delta2, kappa1, kappa2
   #                                 - c3 : normal copula with parameter rho3
-  # Output : likelihood of equation l(para)
+  # Output : likelihood of equation l(para)=l1+l2+l3
   
   
   alpha1<-para[1] ; beta1<-para[2]  
@@ -52,7 +54,7 @@ Likelihood_2exchangeable<-function(para,data){
   eta3<-para[10] ; rho3<-exp(eta3)/(1+exp(eta3))
   m<-max(data[,1])  ## Number of school
   
-  
+  # transform using F and G
   u0<-pbeta(data[,2],alpha1,beta1)
   v0<-pbeta3(data[,3],alpha2,beta2,lambda)
 
