@@ -1,4 +1,3 @@
-
 #-----------------------------------------------------------------------------------------#
 #
 # This program implements the functions used in the paper application section 5
@@ -94,13 +93,13 @@ Likelihood_2exchangeable<-function(para,data){
 
 
 
-# Function 2: prediction function for 2-exchangeable copula : This function predicts the value of y
+# Function 2: prediction function for 2-exchangeable copula: This function predicts the value of y
 #             knowing xn with equation (17) by conditional expectation
 
 Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,delta2,kappa1,kappa2,delta3){
-  # Input : @data : three-column dataframe : Column 1 : School (1:m)
-  #                                              Column 2 : variable x
-  #                                              Column 3 : variable y
+  # Input : @data : three-column data frame: Column 1 : School (1:m)
+  #                                           Column 2 : variable x
+  #                                           Column 3 : variable y
   #                                 - Estimated of alpha1,beta1, alpha2, beta2, lambda, delta2
   #                                   kappa1, kappa2,delta3
   #                                 - @K the number of quadrature points
@@ -121,20 +120,17 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
   
   # calculate for w0
   
-  koudraji<-khoudrajiCopula(copula1 =indepCopula(),
-                            copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
+  koudraji<-khoudrajiCopula(copula1 =indepCopula(),copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
   
   z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),koudraji)
   
   w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-
-    kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,
-                                                  u2=(1-v0)^kappa2, family=1, par=delta2)
+      kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
   
   # Calculate mu0 and sig0
-  
-  moyee<-mean(qnorm(w0))
+ 
   n0=length(ind)
-  mu0=moyee*n0*delta3/(1+(n0-1)*delta3)
+  mu0=mean(qnorm(w0))*n0*delta3/(1+(n0-1)*delta3)
   sig0=sqrt((1-delta3)*(1+n0*(delta3))/(1+(n0-1)*delta3))
   
   
