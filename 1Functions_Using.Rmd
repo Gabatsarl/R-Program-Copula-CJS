@@ -92,8 +92,6 @@ Likelihood_2exchangeable<-function(para,data){
 }
 
 
-
-
 # Function 2: prediction function for 2-exchangeable copula: This function predicts the value of y
 #             knowing xn with equation (17) by conditional expectation
 
@@ -109,10 +107,10 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
   
   
   quadra<-gauss.quad(K,kind="hermite") # 10 number of quadrature points
-    u<-seq(.01,.99,by=.01)
+  u<-seq(.01,.99,by=.01)
 
   # index of individuals in the school we're interested in
-    ind<-which(data[,1]==i)
+  ind<-which(data[,1]==i)
   
   # Transformation of u0 and v0
   u0<-pbeta(data[,2][ind],alpha1,beta1)
@@ -143,22 +141,20 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
     xpred<-c(xpred,valu)
     # conditional distribution of v knowing u C(v|u)
     F_vu<-function(v){
-      a<-1+(kappa1-1)*(1-u[ii])^(-kappa1)*(1-v)^(1-kappa2)*
-        pCopula(c((1-u[ii])^kappa1,(1-v)^kappa2),normalCopula(delta2,dim=2))-
-        kappa1*(1-v)^(1-kappa2)*pnorm((qnorm((1-v)^kappa2)-delta2*
-                                         qnorm((1-u[ii])^kappa1))/sqrt(1-delta2^2))
+      a<-1+(kappa1-1)*(1-u[ii])^(-kappa1)*(1-v)^(1-kappa2)*pCopula(c((1-u[ii])^kappa1,(1-v)^kappa2),normalCopula(delta2,dim=2))-
+        kappa1*(1-v)^(1-kappa2)*pnorm((qnorm((1-v)^kappa2)-delta2*qnorm((1-u[ii])^kappa1))/sqrt(1-delta2^2))
       return(a)
-    }
+      }
     # Inverse of C(v|u)
     
     Inv_F_c<-inverse(F_vu,lower=0,upper=1) #--Inverse de F_v
     
     for (i in (1:K)){
       predv[i]<-pbeta3_inv(Inv_F_c(pnorm(mu0+sqrt(2)*sig0*quadra$nodes[i])),alpha2,beta2,lambda)
-    }
+     } 
     
     ypred<-c(ypred,sum(quadra$weights*predv)/sqrt(pi))
-  }
+   }
   
   return(list(xpred=xpred,ypred=ypred))
 }
@@ -179,7 +175,7 @@ residual_exchangeable_model<-function(K=10,data,alpha1,beta1,alpha2,beta2,lambda
   #                                   kappa1, kappa2,delta3
   #                                 - @K the number of quadrature points
   #
-  # Output : Residus du modele (y-ypred)  
+  # Output : Model residuals (y-ypred)  
 
   quadra<-gauss.quad(K,kind="hermite") # 10 number of quadrature points
   
@@ -190,14 +186,12 @@ residual_exchangeable_model<-function(K=10,data,alpha1,beta1,alpha2,beta2,lambda
   
   # calculate for w0
   
-  koudraji<-khoudrajiCopula(copula1 =indepCopula(),
-                            copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
+  koudraji<-khoudrajiCopula(copula1 =indepCopula(),copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
   
   z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),koudraji)
   
   w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-
-    kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,
-                                         u2=(1-v0)^kappa2, family=1, par=delta2)
+    kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
   
   # clacul mu0 and sig0
   sni<-dim(data)[1]
