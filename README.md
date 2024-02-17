@@ -3,13 +3,13 @@
 
 
 # Introduction
-Les données groupées sont souvent modélisé par le modèle linéaire hiéarchique et ses variantes. 
-Dans ce projet, nous proposons un modèle alternative à base des copules lorsque le nombre de variable explicative par individu est 2
-et nous donnons un exemple d'ajustement sur des données.
+Grouped data are often modeled by the linear hierarchical model and its variants. 
+In this project, we propose an alternative copula-based model when the number of explanatory variables per individual is 2
+and we give an example of fitting to data.
 
 
-# Présentation de la forme des données
-Nous considérons un modèle avec 3 grappes comme exemples numérotés 1, 2 et 3 ayant respectivement 3, 5, et 4 individus. Le graphique se présente dans la figure 
+# Hierarchical data form presentation
+We consider a model with 3 clusters as examples numbered 1, 2 and 3 having 3, 5, and 4 individuals respectively. The graph is shown in figure 
 
 <p align="center">
   <img src="Cluster.png" alt="Disposition des données en cluster">
@@ -24,46 +24,45 @@ Nous considérons un modèle avec 3 grappes comme exemples numérotés 1, 2 et 3
    % B-->D;
     %C-->D;
 %```
-## Objectif
-L'objectif est de proposer un modélisation de ces données en prenant en compte l'effet cluster.
-
+## Target
+The aim is to propose a model for this data, taking into account the cluster effect.
 
 # Modelling
 
 ![Decomposition vine copula](/Capture.png)
 
-Supposons que nous avons une grappe à $n_j$ individus. Donc nous avons $2n_j$ variables. Notons $f_{2,n}$, la densité jointe des $2n_j$. Le modèle de 2-copule échangeable s'écrit : 
+Suppose we have a cluster with $n_j$ individuals. So we have $2n_j$ variables. Let's denote $f_{2,n}$, the joint density of the $2n_j$. The exchangeable 2-copula model is written as: 
 
 ![Decomposition vine copula](/Model2exchangeable.png)
 
-avec $C_{2|1}$, la distribution conditionnelle donnée par
+with $C_{2|1}$, the conditional distribution given by
 $$C_{2|1}\{(v|u)\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
-Le modèle échangeable proposé pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies $C_n^1$, $C^2$ et $C_n^3$ avec comme explication
+The exchangeable model proposed to write the distribution of variables within a cluster with three explicitly defined copulas $C_n^1$, $C^2$ and $C_n^3$ with the following explanation
 
-1. Les copules $C_n^1$ et $C_n^3$ sont des copules échangeables.
-2. La copule $C^2$ est une copule bivariée quelconque.
+1. The copulas $C_n^1$ and $C_n^3$ are exchangeable copulas.
+2. The copula $C^2$ is any bivariate copula.
 
-Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales $F$ et $G$ des deux variables et les trois(3) copules $C_n^{(1)}$, $C^{(2)}$ et $C_n^{(3)}$.
-Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
+To fit an exchangeable 2-copula model, we need to find 5 elements for the two (2) marginal laws $F$ and $G$ of the two variables and the three(3) copulas $C_n^{(1)}$, $C^{(2)}$ and $C_n^{(3)}$.
+To do this, we use the usual procedures for fitting distributions and copulas.
     
-# Ajustement sur des données et comparaison
+# Data adjustment and comparison
 Nous ajustons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code ci-dessous.
 
 ```r
 library(lmeresampler) ; data(jsp728)
 ```
 
-## Comparaison avec les modèles existants
+## Comparison with existing models
 
 <p align="center">
   <img src="Effic.png" alt="Disposition1">
 </p>
 
-1. Modèle ML1 : Modèle linéaire mixte avec intercept aléatoire.
-2. Modèle ML2 : Modèle linéaire mixte avec intercept et pente aléatoires.
-3. Modèle CM : Modèle de régression avec le modèle que nous proposons.
-4. Modèle CR :Modèle de régression avec copule standard.
+1. Model ML1: Linear mixed model with random intercept.
+2. Model ML2: Mixed linear model with random intercept and slope.
+3. CM model: Regression model with our proposed model.
+4. Model CR: Regression model with standard copula.
 
 
 # Conclusion
-Le modèle proposé appelé "2-copule échangeable" améliore la prédiction par rapport à ses concurrents existants.
+The proposed "2-exchangeable copula model" improves prediction compared with existing competitors.
