@@ -66,12 +66,13 @@ Likelihood_2exchangeable<-function(para,data){
   l01<-0
   for(i in 1:m){
     ##-------Part III-1 of likelihood ------#
-    ind<-which(data[,1]==i)
-    lnC1<--dCopula(u0[ind],normalCopula(rho1, dim=length(ind)),log=TRUE)
-    l01<-l01+lnC1
+    #ind<-which(data[,1]==i)
+    #lnC1<--dCopula(u0[ind],normalCopula(rho1, dim=length(which(data[,1]==i))),log=TRUE)
+    l01<-l01-dCopula(u0[ind],normalCopula(rho1, dim=length(which(data[,1]==i))),log=TRUE)
   }
   
   ## copula c2 : khoudraji of parameters @(kappa1,kappa2,rho2)
+    ##-------Part III-2 of likelihood ------#
   koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(rho2),
                             shape = c(kappa1,kappa2))
   l02<- -sum(dCopula(matrix(cbind(1-u0,1-v0),ncol=2),koudraji,log=TRUE))
@@ -83,9 +84,9 @@ Likelihood_2exchangeable<-function(para,data){
   # c3 Copula : normal of parameters @rho1
   l03<-0
   for(i in 1:m){
-    ind1<-which(data[,1]==i)
-    lnC3<- -dCopula(w0[ind1],normalCopula(rho3,dim=length(ind1)),log=TRUE)
-    l03<-l03+lnC3
+    ##-------Part III-3 of likelihood ------#
+    #lnC3<- -dCopula(w0[ind1],normalCopula(rho3,dim=length(which(data[,1]==i))),log=TRUE)
+    l03<-l03-dCopula(w0[ind1],normalCopula(rho3,dim=length(which(data[,1]==i))),log=TRUE)
   }
   return(l1+l2+l01+l02+l03)
 }
