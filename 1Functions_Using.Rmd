@@ -25,10 +25,8 @@ pbeta3_inv<-function(x, alpha,beta, lambda){
   resul
 }
 
-
 ## Function 4 : Likelihood function for parameters estimations of 2-exchangeable copula model 
 #                with c2 is Khoudraji copula 
-
 
 Likelihood_2exchangeable<-function(para,data){
   # Input : @data : three-column data frame : Column 1: School (1:m), m is number of cluster
@@ -89,8 +87,6 @@ Likelihood_2exchangeable<-function(para,data){
   }
   return(l1+l2+l01+l02+l03)
 }
-
-
 
 
 
@@ -156,8 +152,6 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
   
   return(list(xpred=xpred,ypred=ypred))
 }
-
-
 
 
 
@@ -290,3 +284,6 @@ Conditionnal_density<-function(i,x0,K=10,data,vde=seq(.0005,.9995,by=0.001),alph
   return(list(yde=yde,densi=densi))
   
 }
+
+
+# End
