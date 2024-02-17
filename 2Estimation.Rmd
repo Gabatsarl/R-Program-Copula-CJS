@@ -11,7 +11,7 @@
 #-------------------------------------------------------------------------------------##
 
 
-## source R code containing the functions to be used and the packages require
+## source R code containing the functions to be used
 
 source("/Functions_Using.Rmd")
 
@@ -25,28 +25,24 @@ data("jsp728")  # School 10 and 43 are skipped, so renumerate as follows
 
 # Rename school numbers to apply Kendall exchangeable tauE
 u<-unique(jsp728$school) ; school<-rep(0,dim(jsp728)[1])
-for (i in 1:length(u)){ ind<-which(jsp728$school==u[i]); school[ind]<-i }
+for (i in 1:length(u)){ 
+  ind<-which(jsp728$school==u[i]);
+  school[ind]<-i 
+}
 jsp728$school<-school
-
 data.sch=jsp728[,c("school","mathAge8","mathAge11")]
 data.sch$math1t=(data.sch$mathAge8+.5)/41+rnorm(length(data.sch$mathAge8),sd=0.0001)
 data.sch$math3t=(data.sch$mathAge11+.5)/41+rnorm(length(data.sch$mathAge11),sd=0.0001)
 data.sch=data.frame(data.sch[,c("school","math1t","math3t")])
 
 
-# Estimation of global model parameters (Table 6) from "Likelihood_2exchangeable". 
+# Estimation of global model parameters from "Likelihood_2exchangeable". 
 # with nlimb then use optim to obtain standard errors
 # initialization of parameters based on parameter estimation, ignoring school effect
 
 parai<-c(4.38,2.52,2.614,2.31,.29,log(.06/.94),log(.78/.22),log(.82/.18),log(.98/.02),log(.16/.84) )
-
 xx<-nlminb(parai,Likelihood_2exchangeable, data=data.sch)
-Likelihood_2exchangeable(parai,data.sch)
-xx1<-optim(xx$par,fn=Likelihood_2exchangeable,data=data.sch,hessian = TRUE)
-# may take some time
-# standard error for estimate parameters
-sqrt(diag(solve(xx1$hessian)))
-
+xx<-optim(xx$par,fn=Likelihood_2exchangeable,data=data.sch,hessian = TRUE)
 
 
 ## parameters
@@ -56,9 +52,8 @@ alpha2=para[3]; beta2=para[4];lambda=para[5]
 delta1=exp(para[6])/(1+exp(para[6])) ;delta2=exp(para[7])/(1+exp(para[7]));
 kappa1=exp(para[8])/(1+exp(para[8]))
 kappa2=exp(para[9])/(1+exp(para[9])); delta3=exp(para[10])/(1+exp(para[10]))
-c(alpha1,beta1,alpha2,beta2,lambda,delta1,delta2,kappa1,kappa2,delta3)
 
-## Prediction : Figure 5 is obtained with the "Prediction_2_exchangeable" function
+## Prediction: Figure "prediction.png" is obtained with the "Prediction_2_exchangeable" function
 # applied to 2 schools (i=1 and i=30)
 
 # school 1
