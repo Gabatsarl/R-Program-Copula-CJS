@@ -36,13 +36,13 @@ data.sch$math3t=(data.sch$mathAge11+.5)/41+rnorm(length(data.sch$mathAge11),sd=0
 data.sch=data.frame(data.sch[,c("school","math1t","math3t")])
 
 
-# Estimation of global model parameters from "Likelihood_2exchangeable". 
+# Estimation of global model parameters from "Likelihood_2exchangeable (Function 5)". 
 # with nlimb then use optim to obtain standard errors
 # initialization of parameters based on parameter estimation, ignoring school effect
 
 parai<-c(4.38,2.52,2.614,2.31,.29,log(.06/.94),log(.78/.22),log(.82/.18),log(.98/.02),log(.16/.84) )
 xx<-nlminb(parai,Likelihood_2exchangeable, data=data.sch)
-xx<-optim(xx$par,fn=Likelihood_2exchangeable,data=data.sch,hessian = TRUE)
+xx1<-optim(xx$par,fn=Likelihood_2exchangeable,data=data.sch,hessian = TRUE)
 
 
 ## parameters
@@ -53,24 +53,21 @@ delta1=exp(para[6])/(1+exp(para[6])) ;delta2=exp(para[7])/(1+exp(para[7]));
 kappa1=exp(para[8])/(1+exp(para[8]))
 kappa2=exp(para[9])/(1+exp(para[9])); delta3=exp(para[10])/(1+exp(para[10]))
 
-## Prediction: Figure "prediction.png" is obtained with the "Prediction_2_exchangeable" function
+## Prediction 6 : Figure "prediction.png" is obtained with the "Prediction_2_exchangeable" function
 # applied to 2 schools (i=1 and i=30)
 
 # school 1
 Pred_School1<-Prediction_2_exchangeable(i=1,K=10,data=data.sch,alpha1=alpha1,beta1=beta1,
-                          alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
-                          kappa1=kappa1,kappa2=kappa2,delta3=delta3)
-
-
+                alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 xpred1<-Pred_School1$xpred; ypred1<-Pred_School1$ypred
-plot(xpred1,ypred1,type="l")
 
 # school 30
 Pred_School30<-Prediction_2_exchangeable(i=30,K=10,data=data.sch,alpha1=alpha1,beta1=beta1,
-                                        alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
-                                        kappa1=kappa1,kappa2=kappa2,delta3=delta3)
+                    alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
 xpred30<-Pred_School30$xpred; ypred30<-Pred_School30$ypred
+
+
 plot(xpred30,ypred30,type="l")
 
 # Construct fig5
