@@ -32,7 +32,7 @@ L'objectif est de proposer un modélisation de ces données en prenant en compte
 
 ![Decomposition vine copula](/Capture.png)
 
-Supposns que nous avons une grappe à $n_j$ individus. Donc nous avons $2n_j$ variables. Notons $h$, la densité jointe des $2n_j$. Le modèle de 2-copule échangeable s'écrit : 
+Supposons que nous avons une grappe à $n_j$ individus. Donc nous avons $2n_j$ variables. Notons $h$, la densité jointe des $2n_j$. Le modèle de 2-copule échangeable s'écrit : 
 \begin{eqnarray}
 h(\textsf{\textbf{x}}_j,\textsf{\textbf{y}}_j) &=& c_{1,n_j}^{(1)}\left\{F(x_{j1};\alpha),\ldots,F(x_{jn_j};\alpha);\delta_1\right\} \times \\
 && \overset{n_j}{\underset{i=1}{\prod}}f(x_{ji};\alpha)g(y_{ji};\beta)c_{ }^{(2)}{F(x_{ji} ;\alpha),G(y_{ji};\beta);\delta_2} \times \nonumber \\
@@ -49,7 +49,7 @@ Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 él�
 Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
     
 # Ajustement sur des données et comparaison
-Nous ajustons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code
+Nous ajustons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code ci-dessous.
 
 ```r
 library(lmeresampler) ; data(jsp728)
