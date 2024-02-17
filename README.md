@@ -4,8 +4,8 @@
 
 # Introduction
 Les données groupées sont souvent modélisé par le modèle linéaire hiéarchique et ses variantes. 
-Dans ce projet, nous proposons un modèle alternative à base des copules lorsque le nombre de variable explicative est 2
-et nous donnons un exemple d'application.
+Dans ce projet, nous proposons un modèle alternative à base des copules lorsque le nombre de variable explicative par individu est 2
+et nous donnons un exemple d'ajustement sur des données.
 
 
 # Présentation de la forme des données
