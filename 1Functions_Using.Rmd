@@ -88,9 +88,6 @@ Likelihood_2exchangeable<-function(para,data){
     lnC3<- -dCopula(w0[ind1],normalCopula(rho3,dim=length(ind1)),log=TRUE)
     l03<-l03+lnC3
   }
-  
-
-  
   return(l1+l2+l01+l02+l03)
 }
 
