@@ -66,8 +66,8 @@ library(lmeresampler) ; data(jsp728)
   <img src="Effic.png" alt="Disposition1">
 </p>
 
-1. Modèle M1 : Modèle linéaire mixte sans intercept aléatoire.
-2. Modèle M2 : Modèle linéaire mixte sans intercept aléatoire.
+1. Modèle ML1 : Modèle linéaire mixte sans intercept aléatoire.
+2. Modèle ML2 : Modèle linéaire mixte sans intercept aléatoire.
 3. Modèle CM : Modèle de régression avec copule standard.
 4. Modèle CR : Modèle de régression avec le modèle que nous proposons.
 
