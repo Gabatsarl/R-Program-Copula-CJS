@@ -1,6 +1,6 @@
 #-----------------------------------------------------------------------------------------#
 #
-# This program implements the functions used in the paper application section 5
+# This program implements the functions (7) used in the paper application section 5
 #
 #
 #-----------------------------------------------------------------------------------------#
