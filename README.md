@@ -51,7 +51,7 @@ $$C_{2|1}\{(v|u)\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
 Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales $F$ et $G$ des deux variables et les trois(3) copules $C_n^{(1)}$, $C^{(2)}$ et $C_n^{(3)}$.
 Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
     
-# Application
+# Ajustement sur des données et comparaison
 Nous ajustons ce modèle sur des données ouvertes et traités par les modèles classiques pour comparer les résultats de la prédictions. Les données sont disponibles en tapant le mini code
 
 ```r
