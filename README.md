@@ -34,7 +34,7 @@ L'objectif est de proposer un modélisation de ces données en prenant en compte
 
 Supposons que nous avons une grappe à $n_j$ individus. Donc nous avons $2n_j$ variables. Notons $f_{2,n}$, la densité jointe des $2n_j$. Le modèle de 2-copule échangeable s'écrit : 
 
-![Decomposition vine copula](/Capture.png)
+![Decomposition vine copula](/Model2exchangeable.png)
 
 avec $C_{2|1}$, la distribution conditionnelle donnée par
 $$C_{2|1}\{(v|u)\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
