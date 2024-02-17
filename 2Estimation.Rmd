@@ -17,7 +17,8 @@ source("/Functions_Using.Rmd")
 
 # install and load the following packages
 
-library(copula) ; library(VineCopula) ; library(fitdistrplus) ; library(GoFKernel) ; library(statmod) ; library(ggplot2) ; library(lmeresampler)
+library(copula) ; library(VineCopula) ; library(fitdistrplus) ; library(GoFKernel) ; library(statmod) ; library(ggplot2) ; library(lmeresampler) ; library(nlme)
+
 
 # load the data from lmeresampler : Jsp is 728 data from a London school
 
@@ -86,28 +87,33 @@ fig5 <- ggplot() +
 # estimation of residuals of 2-exchangeable model with "prediction_error" function output list
 # of two elements "yde" and "densi" ( Function 7)
 
-
+# residual for exchangeable model (CM)
 Resid_exch<-residual_exchangeable_model(K=10,data=data.sch,alpha1=alpha1,beta1=beta1,
                                         alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
                                         kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
-# residual 
-#Proposed model
-resid_CM<-Resid_exch
-mean(resid_CM^2)  #  .0107
-IQR(resid_CM) #0  .1073281
-#Linear mixed models
-library(nlme)
-xx<-lme(math3t ~ math1t , random=~1|factor(school), data=data.sch)
-summary(xx)
-mean(residuals(xx)^2) #.0112
-IQR(residuals(xx)) #.1186
-xx1<-lme(math3t ~ math1t , random=~1+math1t|factor(school), data=data.sch,  control=list(returnObject=TRUE))
-summary(xx1)
-mean(residuals(xx1)^2)# .01011
-IQR(residuals(xx1))  # .1094
-mean(abs(residuals(xx1))>abs(resid_CM)) #.527
-## Figure 6 densities are calculated with "Conditionnal_density" output 
+
+# Linear mixed models
+## Model ML1
+ML1<-lme(math3t ~ math1t , random=~1|factor(school), data=data.sch)
+## Model ML2
+ML2<-lme(math3t ~ math1t , random=~1+math1t|factor(school), data=data.sch,  control=list(returnObject=TRUE))
+
+
+
+# Describe statistics of residual
+resid_CM<-Resid_exch ; mean(resid_CM^2) ; IQR(resid_CM) # CM model
+
+summary(ML1) ; mean(residuals(ML1)^2) ; IQR(residuals(ML1))
+summary(ML2) ; mean(residuals(ML2)^2) ; IQR(residuals(ML2))
+
+
+
+
+
+
+
+## Figure 6 densities are calculated with "Conditionnal_density (Function 7)" output 
 
 # School 1 
 result1_1<-Conditionnal_density(i=1,x0=0.4,K=10,data=data.sch,vde=seq(.0005,.9995,by=0.001),
@@ -128,14 +134,10 @@ result2_2<-Conditionnal_density(i=30,x0=0.9,K=10,vde=seq(.0005,.9995,by=0.001),d
 
 
 ## construct of figure 6
-
-yde<-result1_1$yde;  ## y
-School1_x40<-result1_1$densi ; School1_x90<-result1_2$densi; # g_p(y) for School 1
-School30_x40<-result2_1$densi; School30_x90<-result2_2$densi # g_p(y) for School 30
-
-plot(yde,School1_x40, xlab="y", ylab=expression(g[p](y)),type="l",lwd=2, ylim=c(0,16))
-lines(yde,School1_x90, type="l",lty=2, lwd=2,ylim=c(0,16))
-lines(yde,School30_x40, type="l",col="red", lwd=2,ylim=c(0,16))
-lines(yde,School30_x90, type="l",col="red", lty=2, lwd=2)
-
-
+fig6<-ggplot() +
+  geom_line(data = data.frame(y = yde, y_pred = School1_x40), aes(x = y, y = y_pred), color = "red", linetype = "solid", size = 1) +
+  geom_line(data = data.frame(y = yde, y_pred = School1_x90), aes(x = y, y = y_pred), color = "red", linetype = "dashed", size = 1) +
+  geom_line(data = data.frame(y = yde, y_pred = School30_x40), aes(x = y, y = y_pred), color = "blue", linetype = "solid", size = 1) +
+  geom_line(data = data.frame(y = yde, y_pred = School30_x90), aes(x = y, y = y_pred), color = "blue", linetype = "dashed", size = 1) +
+  labs(x = "y", y = expression(g[p](y))) +
+  scale_y_continuous(limits = c(0, 16))
