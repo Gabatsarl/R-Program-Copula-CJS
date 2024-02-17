@@ -28,9 +28,6 @@ We consider a model with 3 clusters as examples numbered 1, 2 and 3 having 3, 5,
 The aim is to propose a model for this data, taking into account the cluster effect.
 
 # Modelling
-
-![Decomposition vine copula](/Capture.png)
-
 Suppose we have a cluster with $n_j$ individuals. So we have $2n_j$ variables. Let's denote $f_{2,n}$, the joint density of the $2n_j$. The exchangeable 2-copula model is written as: 
 
 ![Decomposition vine copula](/Model2exchangeable.png)
