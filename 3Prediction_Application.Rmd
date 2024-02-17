@@ -13,13 +13,7 @@ source("/Users/timakpo/Desktop/CC-Template/Paper Submitt/Paper-LPR/Revision/Part
 
 # load the packages
 
-library(copula)
-library(VineCopula)
-library(fitdistrplus) 
-library(GoFKernel)
-library(statmod)
-library(ggplot2)
-library(lmeresampler)
+library(copula) ; library(VineCopula) ; library(fitdistrplus)  ; library(GoFKernel) ; library(statmod) ; library(ggplot2) ; library(lmeresampler)
 
 
 
