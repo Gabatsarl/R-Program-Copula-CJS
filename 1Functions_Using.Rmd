@@ -295,11 +295,9 @@ Conditionnal_density<-function(i,x0,K=10,data,vde=seq(.0005,.9995,by=0.001),
   
   part2<-dCopula(matrix(cbind(1-ude,1-vde),ncol=2),koudraji)
   
-  #  component III :
-  qc2s1<-qnorm(1+(kappa1-1)*(1-ude)^(-kappa1)*(1-vde)^(1-kappa2)*
-                 pCopula(cbind((1-ude)^kappa1,(1-vde)^kappa2),normalCopula(delta2,dim=2))-
-                 kappa1*(1-vde)^(1-kappa2)*pnorm((qnorm((1-vde)^kappa2)-
-                                                    delta2*qnorm((1-ude)^kappa1))/sqrt(1-delta2^2)))
+  #  component III
+  qc2s1<-qnorm(1+(kappa1-1)*(1-ude)^(-kappa1)*(1-vde)^(1-kappa2)*pCopula(cbind((1-ude)^kappa1,(1-vde)^kappa2),normalCopula(delta2,dim=2))-
+                 kappa1*(1-vde)^(1-kappa2)*pnorm((qnorm((1-vde)^kappa2)-delta2*qnorm((1-ude)^kappa1))/sqrt(1-delta2^2)))
   
   part3<-dnorm(qc2s1,mean=mu0,sd=sig0)/dnorm(qc2s1)
   
