@@ -78,10 +78,8 @@ Likelihood_2exchangeable<-function(para,data){
   l02<- -sum(dCopula(matrix(cbind(1-u0,1-v0),ncol=2),koudraji,log=TRUE))
   
   # wij (equation 22)
-  w0<-1+(kappa1-1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*pCopula(matrix(cbind((1-u0)^kappa1,
-                  (1-v0)^kappa2),ncol=2),normalCopula(rho2,dim=2))-
-                  kappa1*(1-v0)^(1-kappa2)*pnorm((qnorm((1-v0)^kappa2)-
-                                            rho2*qnorm((1-u0)^kappa1))/sqrt(1-rho2^2))
+  w0<-1+(kappa1-1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),normalCopula(rho2,dim=2))-
+                  kappa1*(1-v0)^(1-kappa2)*pnorm((qnorm((1-v0)^kappa2)-rho2*qnorm((1-u0)^kappa1))/sqrt(1-rho2^2))
   
   # c3 Copula : normal of parameters @rho1
   l03<-0
