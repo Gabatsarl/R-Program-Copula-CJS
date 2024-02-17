@@ -38,7 +38,7 @@ Le modèle échangeable proposé pour écrire la distribution des variables à l
 
 ![Decomposition vine copula](/Capture.png)
 
-
+Supposns que nous avons une grappe à $n_j$ individus. Donc nous avons $2n_j$ variables. Notons $h$, la densité jointe des $2n_j$. Le modèle de 2-copule échangeable s'écrit : 
 \begin{eqnarray}
 h(\textsf{\textbf{x}}_j,\textsf{\textbf{y}}_j) &=& c_{1,n_j}^{(1)}\left\{F(x_{j1};\alpha),\ldots,F(x_{jn_j};\alpha);\delta_1\right\} \times \\
 && \overset{n_j}{\underset{i=1}{\prod}}f(x_{ji};\alpha)g(y_{ji};\beta)c_{ }^{(2)}\left\{F(x_{ji} ;\alpha),G(y_{ji};\beta);\delta_2\right\} \times \nonumber \\
@@ -59,6 +59,7 @@ library(lmeresampler) ; data(jsp728)
 ```
 
 ## Comparaison avec les modèles existants
+
 <p align="center">
   <img src="Effic.png" alt="Disposition1">
 </p>
