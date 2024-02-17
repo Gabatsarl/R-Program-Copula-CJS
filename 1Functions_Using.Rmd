@@ -326,15 +326,3 @@ Conditionnal_density<-function(i,x0,K=10,data,vde=seq(.0005,.9995,by=0.001),
   return(list(yde=yde,densi=densi))
   
 }
-
-
-
-
-
-
-
-
-
-
-
-
