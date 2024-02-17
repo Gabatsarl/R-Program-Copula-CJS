@@ -29,14 +29,8 @@ L'objectif est de proposer un modélisation de ces données en prenant en compte
 
 
 # Modelling
-Le modèle échangeable proposé pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies $C_n^1$, $C^2$ et $C_n^3$ avec comme explication
-
-1. Les copules $C_n^1$ et $C_n^3$ sont des copules échangeables
-2. La copule $C^2$ est une copule bivariée quelconque.
-
 
 ![Decomposition vine copula](/Capture.png)
-
 Supposns que nous avons une grappe à $n_j$ individus. Donc nous avons $2n_j$ variables. Notons $h$, la densité jointe des $2n_j$. Le modèle de 2-copule échangeable s'écrit : 
 \begin{eqnarray}
 h(\textsf{\textbf{x}}_j,\textsf{\textbf{y}}_j) &=& c_{1,n_j}^{(1)}\left\{F(x_{j1};\alpha),\ldots,F(x_{jn_j};\alpha);\delta_1\right\} \times \\
@@ -45,7 +39,10 @@ h(\textsf{\textbf{x}}_j,\textsf{\textbf{y}}_j) &=& c_{1,n_j}^{(1)}\left\{F(x_{j1
 \end{eqnarray}
 avec $C_{2|1}$, la distribution conditionnelle donnée par
 $$C_{2|1}\{(v|u)\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
+Le modèle échangeable proposé pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies $C_n^1$, $C^2$ et $C_n^3$ avec comme explication
 
+1. Les copules $C_n^1$ et $C_n^3$ sont des copules échangeables.
+2. La copule $C^2$ est une copule bivariée quelconque.
 
 Pour ajuster un modèle de 2-copule échangeable, il faut retrouver alors 5 éléments les deux (2) lois marginales $F$ et $G$ des deux variables et les trois(3) copules $C_n^{(1)}$, $C^{(2)}$ et $C_n^{(3)}$.
 Pour cela, nous utilisons les procédures habituelles d'ajustement des distributions et des copules.
