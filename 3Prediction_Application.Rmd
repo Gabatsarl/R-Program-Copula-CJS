@@ -1,10 +1,9 @@
 
-##------------------------------------------------
+##--------------------------------------------------------#
 #
-#           Application
-#------------------------------------------------
-
-
+#           Prediction with 2-exchangeable copula model
+#
+#---------------------------------------------------------#
 
 ## source R code containing the functions to be used
 
@@ -37,10 +36,8 @@ data.sch=data.frame(data.sch[,c("school","math1t","math3t")])
 parai<-c(4.38,2.52,2.614,2.31,.29,log(.06/.94),log(.78/.22),log(.82/.18),log(.98/.02),log(.16/.84) )
 
 xx<-nlminb(parai,Likelihood_2exchangeable, data=data.sch)
-xx1<-optim(xx$par,fn=Likelihood_2exchangeable,data=data.sch,hessian = TRUE)
+xx<-optim(xx$par,fn=Likelihood_2exchangeable,data=data.sch,hessian = TRUE)
 
-# standard error for estimate parameters
-sqrt(diag(solve(xx1$hessian)))
 
 
 
@@ -57,16 +54,14 @@ kappa1=exp(para[9])/(1+exp(para[9])); delta3=exp(para[10])/(1+exp(para[10]))
 # on two schools (i=1 and i=30)
 
 # school 1
-Pred_School1<-Prediction_2_exchangeable(i=1,K=10,data=data.sch,alpha1=alpha1,beta1=beta1,
-                          alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
+Pred_School1<-Prediction_2_exchangeable(i=1,K=10,data=data.sch,alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
                           kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
 
 xpred1<-Pred_School1$xpred; ypred1<-Pred_School1$ypred
 
 # school 30
-Pred_School1<-Prediction_2_exchangeable(i=30,K=10,data=data.sch,alpha1=alpha1,beta1=beta1,
-                                        alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
+Pred_School1<-Prediction_2_exchangeable(i=30,K=10,data=data.sch,alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
                                         kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
 xpred30<-Pred_School1$xpred; ypred30<-Pred_School1$ypred
@@ -89,34 +84,27 @@ fig5<-ggplot() +
 # of two elements "yde" and "densi"
 
 
-Resid_exch<-residual_exchangeable_model(K=10,data=data.sch,alpha1=alpha1,beta1=beta1,
-                                        alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
+Resid_exch<-residual_exchangeable_model(K=10,data=data.sch,alpha1=alpha1,beta1=beta1, alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
                                         kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
 # residual 
-resid_CM<-Resid_exch
-mean(resid_CM^2)  #  .0107
-IQR(resid_CM)
+resid_CM<-Resid_exch ; mean(resid_CM^2) ; IQR(resid_CM)
 
 
 ## Figure 6 curves with "Conditionnal_density" output 
 
 # School 1 
 result1_1<-Conditionnal_density(i=1,x0=0.4,K=10,data=data.sch,vde=seq(.0005,.9995,by=0.001),
-                                alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
-                                kappa1=kappa1,kappa2=kappa2,delta3=delta3)
+              alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 result1_2<-Conditionnal_density(i=1,x0=0.9,K=10,vde=seq(.0005,.9995,by=0.001),data=data.sch,
-                                alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
-                                kappa1=kappa1,kappa2=kappa2,delta3=delta3)
+             alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
 # School 30
 result2_1<-Conditionnal_density(i=30,x0=0.4,K=10,vde=seq(.0005,.9995,by=0.001),data=data.sch,
-                                alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
-                                kappa1=kappa1,kappa2=kappa2,delta3=delta3)
+                alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2, kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
 result2_2<-Conditionnal_density(i=30,x0=0.9,K=10,vde=seq(.0005,.9995,by=0.001),data=data.sch,
-                                alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,
-                                kappa1=kappa1,kappa2=kappa2,delta3=delta3)
+                alpha1=alpha1,beta1=beta1,alpha2=alpha2,beta2=beta2,lambda=lambda,delta2=delta2,kappa1=kappa1,kappa2=kappa2,delta3=delta3)
 
 
 ## construct of figure 6
