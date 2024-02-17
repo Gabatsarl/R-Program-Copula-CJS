@@ -33,7 +33,7 @@ L'objectif est de proposer un modélisation de ces données en prenant en compte
 ![Decomposition vine copula](/Capture.png)
 
 Supposons que nous avons une grappe à $n_j$ individus. Donc nous avons $2n_j$ variables. Notons $h$, la densité jointe des $2n_j$. Le modèle de 2-copule échangeable s'écrit : 
-```markdown
+```latex
 $h(\textsf{\textbf{x}}j,\textsf{\textbf{y}}j) = c{1,n_j}^{(1)}\left{F(x{j1};\alpha),\ldots,F(x_{jn_j};\alpha);\delta_1\right} \times \
 \quad \overset{n_j}{\underset{i=1}{\prod}}f(x_{ji};\alpha)g(y_{ji};\beta)c_{ }^{(2)}{F(x_{ji} ;\alpha),G(y_{ji};\beta);\delta_2} \times \
 \quad c_{1,n_j}^{(3)}[C_{2|1}{G(y_{j1};\beta)|F(x_{j1};\alpha)},\ldots,C_{2|1}{G(y_{jn_j};\beta)|F(x_{jn_j};\alpha)};\delta_3],$
