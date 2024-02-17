@@ -84,7 +84,7 @@ fig5 <- ggplot() +
 
 
 # estimation of residuals of 2-exchangeable model with "prediction_error" function output list
-# of two elements "yde" and "densi"
+# of two elements "yde" and "densi" ( Function 7)
 
 
 Resid_exch<-residual_exchangeable_model(K=10,data=data.sch,alpha1=alpha1,beta1=beta1,
