@@ -15,15 +15,6 @@ We consider a model with 3 clusters as examples numbered 1, 2 and 3 having 3, 5,
   <img src="Cluster.png" alt="Disposition des données en cluster">
 </p>
 
-
-
-%```mermaid
-%graph TD;
- %   A-->B;
-  %  A-->C;
-   % B-->D;
-    %C-->D;
-%```
 ## Target
 The aim is to propose a model for this data, taking into account the cluster effect.
 
