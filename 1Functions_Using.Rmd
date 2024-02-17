@@ -73,8 +73,7 @@ Likelihood_2exchangeable<-function(para,data){
   
   ## copula c2 : khoudraji of parameters @(kappa1,kappa2,rho2)
     ##-------Part III-2 of likelihood ------#
-  koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(rho2),
-                            shape = c(kappa1,kappa2))
+  koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(rho2),shape = c(kappa1,kappa2))
   l02<- -sum(dCopula(matrix(cbind(1-u0,1-v0),ncol=2),koudraji,log=TRUE))
   
   # wij (equation 22)
@@ -120,11 +119,9 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
   # calculate for w0
   
   koudraji<-khoudrajiCopula(copula1 =indepCopula(),copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
-  
   z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),koudraji)
-  
   w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-
-      kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
+     kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
   
   # Calculate mu0 and sig0
  
