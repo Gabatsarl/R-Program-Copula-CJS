@@ -29,7 +29,7 @@ L'objectif est de proposer un modélisation de ces données en prenant en compte
 
 
 # Modelling
-Le modèle échangeable proposé pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies C^1, C^2 et C^3  avec comme explication
+Le modèle échangeable proposé pour écrire la distribution des variables à l'intérieur d'une grappe avec trois copules explicitement définies $C_n^1$, $C^2$ et $C_n^3$ avec comme explication
 
     1. La copule C^1 et C^3 sont des copules échangeables
     2. La copule C^2 est une copule bivariée quelconque.
