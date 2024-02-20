@@ -6,13 +6,13 @@
 #-----------------------------------------------------------------------------------------#
 
 
-# Function 1 : Density fonction for beta(alpha,beta, lambda)
+# Function 1: Density fonction for beta(alpha,beta, lambda)
 
 dbeta3<-function(x,alpha,beta,lambda){
  (lambda/(1-(1-lambda)*x)^2)*dbeta(lambda*x/(1-(1-lambda)*x),alpha,beta)
 }
 
-# Function 2 : cdf of beta3 
+# Function 2: cdf of beta3 
 pbeta3<-function(x,alpha,beta,lambda){
   x2<-pbeta(lambda*x/(1-x*(1-lambda)),alpha,beta);
   x2
@@ -69,7 +69,7 @@ Likelihood_2exchangeable<-function(para,data){
     l01<-l01-dCopula(u0[ind],normalCopula(rho1, dim=length(ind)),log=TRUE)
   }
   
-  ## copula c2 : khoudraji of parameters @(kappa1,kappa2,rho2)
+  ## copula c2: khoudraji of parameters @(kappa1,kappa2,rho2)
     ##-------Part III-2 of likelihood ------#
   koudraji<-khoudrajiCopula(copula1 =indepCopula(), copula2 =normalCopula(rho2),shape = c(kappa1,kappa2))
   l02<- -sum(dCopula(matrix(cbind(1-u0,1-v0),ncol=2),koudraji,log=TRUE))
@@ -78,7 +78,7 @@ Likelihood_2exchangeable<-function(para,data){
   w0<-1+(kappa1-1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),normalCopula(rho2,dim=2))-
                   kappa1*(1-v0)^(1-kappa2)*pnorm((qnorm((1-v0)^kappa2)-rho2*qnorm((1-u0)^kappa1))/sqrt(1-rho2^2))
   
-  # c3 Copula : normal of parameters @rho1
+  ## Copula c3: normal of parameters @rho1
   l03<-0
   for(i in 1:m){
     ##-------Part III-3 of likelihood ------#
