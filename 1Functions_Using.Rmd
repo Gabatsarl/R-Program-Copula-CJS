@@ -19,13 +19,13 @@ pbeta3<-function(x,alpha,beta,lambda){
 }
 
 
-# Function 3 : qbeta_inv : Inverse of pbeta3 (F^-1)
+# Function 3: qbeta_inv : Inverse of pbeta3 (F^-1)
 pbeta3_inv<-function(x, alpha,beta, lambda){
   resul<-qbeta(x,alpha,beta)/(lambda+(1-lambda)*qbeta(x,alpha,beta)) ;
   resul
 }
 
-## Function 4 : Likelihood function for parameters estimations of 2-exchangeable copula model 
+## Function 4: Likelihood function for parameters estimations of the 2-exchangeable copula model 
 #                with c2 is Khoudraji copula 
 
 Likelihood_2exchangeable<-function(para,data){
