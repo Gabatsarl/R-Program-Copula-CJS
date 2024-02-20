@@ -155,7 +155,7 @@ Prediction_2_exchangeable=function(i,K,data,alpha1,beta1,alpha2,beta2,lambda,del
 
 
 
-# function 6 : Estimation of model residuals: This function predicts y 
+# Function 6 : Estimation of model residuals: This function predicts y 
 # knowing x with ypred for data elements then calculates @resid=(y-ypred)
 
 
@@ -234,8 +234,8 @@ residual_exchangeable_model<-function(K=10,data,alpha1,beta1,alpha2,beta2,lambda
 Conditionnal_density<-function(i,x0,K=10,data,vde=seq(.0005,.9995,by=0.001),alpha1,beta1,alpha2,beta2,lambda,delta2,kappa1,kappa2,delta3){
   
   # Input : @data : three-column dataframe : Column 1 : School (1:m)                                      #
-  #                                              Column 2 : variable x
-  #                                              Column 3 : variable y
+  #                                          Column 2 : variable x
+  #                                          Column 3 : variable y
   #                                 - Estimated of alpha1,beta1, alpha2, beta2, lambda, delta2
   #                                   kappa1, kappa2,delta3
   #                                 - @K the number of quadrature points
