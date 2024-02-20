@@ -60,7 +60,7 @@ Likelihood_2exchangeable<-function(para,data){
   
   l2<--sum(log(dbeta3(data[,3],alpha2,beta2,lambda))) # g0
   
-  # c1 copula : normal of parameters @rho1
+  ## copula c1: normal of parameters @rho1
   l01<-0
   for(i in 1:m){
     ##-------Part III-1 of likelihood ------#
