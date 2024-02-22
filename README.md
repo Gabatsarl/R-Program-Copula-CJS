@@ -12,7 +12,7 @@ and we give an example of fitting to data.
 We consider a model with 3 clusters as examples numbered 1, 2 and 3 having 3, 5, and 4 individuals respectively. The graph is shown in figure 
 
 <p align="center">
-  <img src="Cluster.png" alt="Disposition des données en cluster">
+  <img src="Summary_paper/Cluster.png" alt="Disposition des données en cluster">
 </p>
 
 ## Target
@@ -21,7 +21,7 @@ The aim is to propose a model for this data, taking into account the cluster eff
 # Modelling
 Suppose we have a cluster with $n_j$ individuals. So we have $2n_j$ variables. Let's denote $f_{2,n}$, the joint density of the $2n_j$. The exchangeable 2-copula model is written as: 
 
-![Decomposition vine copula](/Model2exchangeable.png)
+![Decomposition vine copula](Summary_paper/Model2exchangeable.png)
 
 with $C_{2|1}$, the conditional distribution given by
 $$C_{2|1}\{(v|u)\}=\frac{\partial C^{(2)}(u,v;\delta_2)}{\partial u} \cdot$$
@@ -43,7 +43,7 @@ library(lmeresampler) ; data(jsp728)
 ## Comparison with existing models
 
 <p align="center">
-  <img src="Effic.png" alt="Disposition1">
+  <img src="Summary_paper/Effic.png" alt="Disposition1">
 </p>
 
 1. Model ML1: Linear mixed model with random intercept.
