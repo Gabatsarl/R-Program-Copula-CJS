@@ -1,7 +1,7 @@
 
 #------------------------------------------------------------------------------------##
 #  This file contains calls to the R packages needed to
-#  analyse the data in Section 6.
+#  analysis the data in Section 6.
 #  It also provides the R-code needed:
 #  1-to fit the proposed model  by maximum likelihood and to get Table 6
 #  2- to redo the residual analysis on pages 38-39
