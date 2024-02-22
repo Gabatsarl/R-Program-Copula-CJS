@@ -62,6 +62,15 @@ parai<-c(4.38,2.52,2.614,2.31,.29,log(.06/.94),log(.78/.22),log(.82/.18),log(.98
 xx<-nlminb(parai,Likelihood_2exchangeable, data=data.sch)
 xx1<-optim(xx$par,fn=Likelihood_2exchangeable,data=data.sch,hessian = TRUE)
 
+# standard error for estimate parameters
+serr<-sqrt(diag(solve(xx1$hessian)))
+
+res1<-cbind(xx0$par,serr ) ;colnames(res1)<-c("estimates","stderr")
+res1
+#  this gives the parameter estimates and the standard errors
+#  of the first 5 parameters in Table 6
+#  for the last 5 the logit parameters are provided
+
 
 ## parameters
 para<-xx$par
