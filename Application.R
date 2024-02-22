@@ -11,13 +11,34 @@
 #-------------------------------------------------------------------------------------##
 
 
+#
+
+# load the packages
+
+install.packages("copula")
+install.packages("VineCopula")
+install.packages("fitdistrplus") 
+install.packages("GoFKernel")
+install.packages("statmod")
+install.packages("ggplot2")
+install.packages("lmeresampler")
+install.packages("Matrix")
+install.packages("lme4")
+
+library(copula)
+library(VineCopula)
+library(fitdistrplus) 
+library(GoFKernel)
+library(statmod)
+library(ggplot2)
+library(lmeresampler)
+library(Matrix)
+library(lme4)
+
+
 ## source R code containing the functions to be used
 
 source("/Functions_Using.R")
-
-# install and load the following packages
-
-library(copula) ; library(VineCopula) ; library(fitdistrplus) ; library(GoFKernel) ; library(statmod) ; library(ggplot2) ; library(lmeresampler) ; library(nlme)
 
 # load the data from lmeresampler : Jsp is 728 data from a London school
 
