@@ -13,7 +13,7 @@
 
 ## source R code containing the functions to be used
 
-source("/Functions_Using.Rmd")
+source("/Functions_Using.R")
 
 # install and load the following packages
 
