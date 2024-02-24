@@ -178,11 +178,14 @@ residual_exchangeable_model<-function(K=10,data,alpha1,beta1,alpha2,beta2,lambda
   
   # calculate for w0
   
-  koudraji<-khoudrajiCopula(copula1 =indepCopula(),copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
-  z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),koudraji)
+  
+  koudraji<-khoudrajiCopula(copula1 =indepCopula(),
+                            copula2 =normalCopula(delta2) ,shape = c(kappa1,kappa2))
+  
+  z<-pCopula(matrix(cbind((1-u0)^kappa1,(1-v0)^kappa2),ncol=2),normalCopula(delta2,dim=2))
   w0<-1-(1-kappa1)*(1-u0)^(-kappa1)*(1-v0)^(1-kappa2)*z-kappa1*(1-v0)^(1-kappa2)*BiCopHfunc1(u1=(1-u0)^kappa1,u2=(1-v0)^kappa2, family=1, par=delta2)
   
-  # clacul mu0 and sig0
+  # claculate mu0 and sig0
   sni<-dim(data)[1]
   m<-max(data[,1])
   data$mu0<-rep(0,sni)
