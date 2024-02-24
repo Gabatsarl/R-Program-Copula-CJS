@@ -10,6 +10,7 @@ and we give an example of fitting to data.
 This project consists of two folders:
 
 -The #Summary_paper folder provides information on the paper as a whole, and
+
 -The #Summary_apply folder provides information on section 5, applying the model to data.
 
 
