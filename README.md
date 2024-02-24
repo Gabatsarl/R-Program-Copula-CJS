@@ -7,9 +7,10 @@ Grouped data are often modeled by the linear hierarchical model and its variants
 In this project, we propose an alternative copula-based model when the number of explanatory variables per individual is 2
 and we give an example of fitting to data.
 
-Ce projet comporte deux dossiers :
--Le dossier # summary_paper donne des informations sur l'ensemble du papier et
--Le dossier # summary_application donne des informations sur l'ensemble du papier et
+This project consists of two folders:
+
+-The #Summary_paper folder provides information on the paper as a whole, and
+-The #Summary_apply folder provides information on section 5, applying the model to data.
 
 
 # Hierarchical data form presentation
